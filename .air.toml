@@ -1,0 +1,36 @@
+root = "."
+testdata_dir = "testdata"
+tmp_folder = "."
+
+[build]
+bin = "./shadcn-go"
+pre_cmd = ["task dev"]
+post_cmd = ["rm -f ./shadcn-go"]
+delay = 150
+exclude_dir = [
+    "assets",
+    "database/store",
+    "tmp",
+    "vendor",
+    "node_modules",
+    "testdata",
+]
+exclude_regex = [".*_templ.go"]
+include_dir = []
+include_ext = ["go", "templ", "js", "tmpl", "html", "sql"]
+include_file = []
+rerun = true
+rerun_delay = 200
+stop_on_error = false
+
+[misc]
+clean_on_exit = true
+
+[proxy]
+enabled = true
+proxy_port = 9090
+app_port = 9005
+
+[screen]
+clear_on_rebuild = false
+keep_scroll = true

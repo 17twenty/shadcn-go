@@ -13,22 +13,26 @@ tasks:
     cmds:
       - tailwindcss -i ./tailwind.css -o ./static/css/main.css
       - go generate
-      - go build -o ./shadcn
+      - templ fmt ./shadcn
+      - templ generate ./shadcn
+      - go build -o ./shadcn-go
     silent: true
   prod:
     cmds:
       - tailwindcss -i ./tailwind.css -o ./static/css/main.css --minify
       - go generate
-      - go build -o ./shadcn
+      - templ fmt ./shadcn
+      - templ generate ./shadcn
+      - go build -o ./shadcn-go
     silent: true
   run:
     deps: [dev]
     cmds:
-      - ./shadcn
+      - ./shadcn-go
   run-prod:
     deps: [prod]
     cmds:
-      - ./shadcn
+      - ./shadcn-go
   live:
     cmds:
       - air
