@@ -14,10 +14,11 @@ exclude_dir = [
     "vendor",
     "node_modules",
     "testdata",
+    "static",
 ]
 exclude_regex = [".*_templ.go"]
 include_dir = []
-include_ext = ["go", "templ", "js", "tmpl", "html", "sql"]
+include_ext = ["css", "go", "templ", "js", "tmpl", "html", "sql"]
 include_file = []
 rerun = true
 rerun_delay = 200
