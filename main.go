@@ -22,21 +22,14 @@ func exampleMiddleware(next http.Handler) http.Handler {
 }
 
 func main() {
-	// component := shadcn.Hello("World")
-
-	// foo := templ.NewCSSMiddleware(messageHandler("hello"))
-
-	// http.Handle("/", templ.Handler(component))
-
-	// http.Handle("/", templ.Handler(shadcn.Demo()))
 
 	router := mux.NewRouter().StrictSlash(true)
 	staticRouter := router.PathPrefix("/static/")
 	staticRouter.Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
+	// Render our root demo
 	router.Handle("/", templ.Handler(shadcn.Demo()))
 
 	fmt.Println("Listening on :9005")
-	// http.ListenAndServe(":9005", foo)
 	http.ListenAndServe(":9005", router)
 }
