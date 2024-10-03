@@ -6,12 +6,14 @@ templ Demo() {
 		<head>
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-			<title>Tim Stack</title>
+			<title>ShadCN Hoisting</title>
 			<link href="/static/css/main.css" rel="stylesheet"/>
 		</head>
 		<body>
-			@Input("password")
-			@Hello("Foobar")
+			<form action="https://formsubmit.co/your@email.com" method="POST">
+				@Input("text", templ.Attributes{"value": "Hello"})
+				@Hello("Foobar")
+			</form>
 		</body>
 	</html>
 }
